@@ -1,0 +1,51 @@
+div{
+	/*Définir les marges de la page*/
+    width: 80%;
+    margin: 20px auto; /*Centre les div dans la page*/    
+}
+
+p{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  text-align:center; /*Position texte*/
+}
+/*
+p{
+   Pour mettre la marge entre l'intérieur à la bordure
+  padding: 20px;
+  margin: 20px 10px;
+}
+
+.bordure{
+	Mettre une bordure
+    border: 2px solid black;
+}
+.arrondi2{
+	 Arrondir les coins du rectangle
+    border-radius: 50px;/*Identique à border-radius: 50px/50px
+}*/
+
+body {
+	/*taille écriture*/
+  font-size: 25px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  text-align:left; /*Position texte*/
+  /*Définir les marges de la page*/
+    width: 95%;
+    margin: 20px auto; /*Centre les div dans la page*/
+}
+
+img {
+ max-width: 100%;
+ max-height: 100%;
+}
+.cat {
+ height: 500px;
+ width: 500px;
+}
+
+
+
