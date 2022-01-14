@@ -2,19 +2,35 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <link rel="stylesheet" href="style.css" />
-        <title>Informations commerçants</title>
+        <link rel="stylesheet" href="Puteaux.css" />
+        <title>Informations commerçants</title>        
     </head>
 
     <body>
-    	<!-- Corps de la page -->	
-		<div>Bienvenue
+        <!-- Corps de la page   
+        <div class="wp-block-buttons">
+        <div class="wp-block-button aligncenter has-custom-width wp-block-button__width-100 is-style-outline"><a class="wp-block-button__link" href="https://maps.google.com" style="padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px"><img class="wp-image-28" style="width:600px;" src="vaccination.jpg" alt=""></a></div>
 
-		</div>
+        <input type=button onclick=window.location.href='maps.html'; value=Aller sur mon site />-->
 
-		<input type=button onclick=window.location.href='maps.html'; value=Aller sur mon site />
+        <div class="slideshow">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+           $(function(){
+              setInterval(function(){
+                 $(".slideshow ul").animate({marginLeft:-350},800,function(){
+                    $(this).css({marginLeft:0}).find("li:last").after($(this).find("li:first"));
+                 })
+              }, 3500);
+           });
+        </script>
+            <ul>
+                 <li><img src="vaccination.jpg" alt="" width="1500" height="800" /></li>
+                 <li><img src="bonne_annee.jpg" alt="" width="1500" height="800" /></li>
+                 <li><img src="au_coin_des_barbus.jpg" alt="" width="1500" height="800" /></li>      
+            </ul>
+        </div>
 
-		
-    
+
     </body>
 </html>
