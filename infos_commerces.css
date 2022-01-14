@@ -52,3 +52,38 @@ img {
   height:55px;
 }
 
+.bouton_categorie{
+  position: absolute;
+  z-index: 1; /*mettre le bouton au premier plan. L'attribut avec le plus gd z-max est au premier plan*/
+  top: 700;
+  left: 460px;
+  border-radius: 12px;
+  padding: 8px 28px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.bouton_trajet{
+  position: absolute;
+  z-index: 1;
+  top: 700;
+  left: 700px;
+  border-radius: 12px;
+  padding: 8px 28px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+.bouton_catalogue{
+  position: absolute;
+  z-index: 1;
+  top: 700;
+  left: 870px;
+  border-radius: 12px;
+  padding: 8px 28px;
+  background-color: white;
+  border: 2px solid black;
+}
+
+
+
