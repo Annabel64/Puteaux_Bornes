@@ -43,15 +43,15 @@ function initMap() {
        });
    
    
-       const infowindow2= new google.maps.InfoWindow({
-           content:'<h3>Franck Provost</h3>'
-           + '<a href="">Site du coiffeur</a>'
-           + '<br/><img src="CFP.jpg" width="200px" />'
-       });
+    const infowindow2= new google.maps.InfoWindow({
+        content:'<h3>Franck Provost</h3>'
+        + '<a href="">Site du coiffeur</a>'
+        + '<br/><img src="CFP.jpg" width="200px" />'
+    });
        
-       marker2.addListener("click", () => {
-           infowindow2.open(map,marker2);
-       });
+    marker2.addListener("click", () => {
+        infowindow2.open(map,marker2);
+    });
 }
 
 
