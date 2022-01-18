@@ -13,7 +13,7 @@ function initMap() {
      title: "Coiffure Wallace",
      animation: google.maps.Animation.DROP,
      icon: {
-        url: "coiffeur.png",
+        url: "images\\coiffeur.png",
         scaledSize: new google.maps.Size(40,30)
      }
 
@@ -22,8 +22,8 @@ function initMap() {
 
     const infowindow= new google.maps.InfoWindow({
         content:'<h3>Coiffure Wallace</h3>'
-        + '<a href="">Site du coiffeur</a>'
-        + '<br/><img src="CWallace.jpg" width="200px" />'
+            + '<a href="au_coin_des_barbus.html">Site du coiffeur</a>'
+            + '<br/><img src="images\\CWallace.jpg" width="200px" />'
     });
     
     marker.addListener("click", () => {
@@ -36,7 +36,7 @@ function initMap() {
         title: "Franck Provost",
         animation: google.maps.Animation.DROP,
         icon: {
-           url: "coiffeur.png",
+            url: "images\\coiffeur.png",
            scaledSize: new google.maps.Size(40,30)
         }
    
@@ -46,7 +46,7 @@ function initMap() {
     const infowindow2= new google.maps.InfoWindow({
         content:'<h3>Franck Provost</h3>'
         + '<a href="">Site du coiffeur</a>'
-        + '<br/><img src="CFP.jpg" width="200px" />'
+            + '<br/><img src="images\\CFP.jpg" width="200px" />'
     });
        
     marker2.addListener("click", () => {
