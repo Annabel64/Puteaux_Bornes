@@ -22,7 +22,7 @@ function initMap() {
 
     const infowindow= new google.maps.InfoWindow({
         content:'<h3>Coiffure Wallace</h3>'
-            + '<a href="au_coin_des_barbus.html">Site du coiffeur</a>'
+            + '<a href="Coiffure_Wallace.html">Site du coiffeur</a>'
             + '<br/><img src="imagesBoutiques\\CWallace.jpg" width="200px" />'
     });
     
@@ -83,9 +83,9 @@ function initMap() {
 
         content: '<h2>Duplinat</h2>'
 
-            + '<a href="">Site de l\'imprimerie</a>'
+            + '<a href="duplinat.html">Site de l\'imprimerie</a>'
 
-            + '<br/><img src="imagesBoutiques\\IDuplinat.png" width="200px" />'
+            + '<br/><img src="imagesBoutiques\\SDuplinat.png" width="200px" />'
 
     });
 
@@ -131,7 +131,7 @@ function initMap() {
 
         content: '<h2>Au coin des barbus</h2>'
 
-            + '<a href="">Site du barbershop</a>'
+            + '<a href="au_coin_des_barbus.html">Site du barbershop</a>'
 
             + '<br/><img src="imagesBoutiques\\BACDB.png" width="200px" />'
 
