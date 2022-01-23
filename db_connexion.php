@@ -12,7 +12,7 @@ $conn = new mysqli($servername, $username, $password);
 $sqlTableImages = "CREATE TABLE `images` (
   `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
-  `image` longtext NOT NULL
+  --`image` longtext NOT NULL (not used)
 )";
 
 $sqlTableShops = "CREATE TABLE shops (
