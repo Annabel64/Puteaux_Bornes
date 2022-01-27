@@ -1,4 +1,5 @@
 // target current day, disable future days and days without dates
+alert("Hello World !");
 
 var d = new Date();
 var todaysDate = d.getDate();
@@ -45,3 +46,4 @@ $('.close').click(function(){
 // snow effect customizations
 
 $(document).snowfall({flakeCount : 100,collection : '.collectonme',  maxSpeed : 10});
+
