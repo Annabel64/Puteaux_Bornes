@@ -1,9 +1,14 @@
 <!DOCTYPE html>
+
+<!-- pour les classes popup -->
+<link rel="stylesheet" href="popup.css" />
+<script src="popup.js"></script>
+
 <html>
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="calendrier.css" />
-        <title>Page accueil borne Puteaux</title>        
+        <title>Evenements - Calendrier</title>        
     </head>
 
 
@@ -19,14 +24,20 @@
 
 
                 <div class="message"></div>
-                <a href="#" class="close">bjr;</a>
+                
             </div>
         </div>
+    
 
-<!-- trouver comment y mettre les numéros -->        
+<!-- le bouton marche, trouver où le placer -->        
+<!--<button class="button" onclick="window.location.href = '../maps.html';">Retour</button>-->
+
+<!-- changer les couleurs + ordre des boutons + modifier css de popup (pour ajouter des images sur les popup) -->
+<!-- commencer à remplir le rapport -->
+
 
 <div class="grid">
-    <button class="grid__item grid__item--sun grid__item--lg grid__item--1">
+    <button class="grid__item grid__item--sun grid__item--lg grid__item--1" onclick="pop.open('Cours de cuisine', 'Comment faire des cookies ?<br>- Mettre des oeufs<br>- de la farine')" value="Show">
         <span class="grid__item-door">
             1
         </span>
@@ -171,7 +182,12 @@
         </span>
         <span class="grid__item-shadow"></span>
     </button>
+
 </div>
+
+
+</body>
+</html>
 
 
 
