@@ -1,3 +1,4 @@
+
 var pop = {
   // (A) ATTACH POPUP HTML
   pWrap : null,  // html popup wrapper
@@ -30,4 +31,4 @@ var pop = {
   // (C) CLOSE POPUP
   close : () => { pop.pWrap.classList.remove("open"); }
 };
-window.addEventListener("DOMContentLoaded", pop.init);
+window.addEventListener("DOMContentLoaded", pop.init); 

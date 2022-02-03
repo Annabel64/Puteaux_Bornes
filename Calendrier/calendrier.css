@@ -1,5 +1,5 @@
 body {
-    background-color: #fcf4d1;
+    background-color: #ffffff;
     height: 100%;
     overflow-y: hidden;
 }
@@ -37,7 +37,7 @@ button {
     left: 0;
     right: 0;
     box-shadow: inset -2px -2px 2px 2px rgba(0, 0, 0, 0.2);
-    background-color: #fad249;
+    background-color: #eeeded;
 }
 .grid__item:hover .grid__item-door, .grid__item:focus .grid__item-door {
     transform: rotateY(28deg);
@@ -57,7 +57,7 @@ button {
     bottom: 0;
     left: -1px;
     right: 0;
-    background-color: #fcf4d1;
+    background-color: #e3fffd;
     border: 1px dashed #333;
     color: #333;
     display: flex;
@@ -90,19 +90,19 @@ button {
     font-size: 400%; /*taille écriture*/
 }
 .grid__item--moss .grid__item-door {
-    background-color: #cdb;
+    background-color: rgb(255, 219, 219);
 }
 .grid__item--sky .grid__item-door {
-    background-color: #c7d8db;
+    background-color: #fee1ff;
 }
 .grid__item--sun .grid__item-door {
-    background-color: #f8e9a0;
+    background-color: #fcf4ce;
 }
 .grid__item--rose .grid__item-door {
-    background-color: #f7d9c5;
+    background-color: #ffeadc;
 }
 .grid__item--1 {
-    grid-area: 1 / span 1 / span 1;
+    grid-area: 2 / span 1 / span 1;
 }
 .grid__item--1 .grid__item-door {
     z-index: 8;
@@ -120,7 +120,7 @@ button {
     z-index: 11;
 }
 .grid__item--3 {
-    grid-area: 2 / span 1 / span 1;
+    grid-area: 1 / span 1 / span 1;
 }
 .grid__item--3 .grid__item-door {
     z-index: 6;
@@ -132,7 +132,7 @@ button {
     grid-area: 3 / span 1 / span 1;
 }
 .grid__item--5 {
-    grid-area: 1 / span 1 / span 1;
+    grid-area: 4 / span 1 / span 1;
 }
 .grid__item--5 .grid__item-door {
     z-index: 14;
@@ -141,7 +141,7 @@ button {
     z-index: 13;
 }
 .grid__item--6 {
-    grid-area: 1 / span 1 / span 1;
+    grid-area: 3 / span 1 / span 1;
 }
 .grid__item--6 .grid__item-door {
     z-index: 14;
@@ -243,7 +243,7 @@ button {
     z-index: 9;
 }
 .grid__item--18 {
-    grid-area: 4 / span 1 / span 1;
+    grid-area: 1 / span 1 / span 1;
 }
 .grid__item--18 .grid__item-door {
     z-index: 16;
@@ -270,7 +270,7 @@ button {
     z-index: 7;
 }
 .grid__item--21 {
-    grid-area: 3 / span 1 / span 1;
+    grid-area: 1 / span 1 / span 1;
 }
 .grid__item--21 .grid__item-door {
     z-index: 4;
