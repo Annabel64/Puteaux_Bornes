@@ -1,3 +1,4 @@
+alert('rr');
 
 var pop = {
   // (A) ATTACH POPUP HTML
