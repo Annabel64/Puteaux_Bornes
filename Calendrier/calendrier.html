@@ -1,211 +1,186 @@
+<!-- TO DO -->
+<!-- ajouter zone de texte dans les popup pour rentrer l'adresse mail -->
+<!-- faire en sorte qu'on puisse réellement s'envoyer les recettes par mail  -->
+
 <!DOCTYPE html>
-
-<!-- pour les classes popup -->
-<link rel="stylesheet" href="popup.css" />
-<script src="popup.js"></script>
-
-<!-- Trigger the Modal -->
-
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-    <!-- The Close Button -->
-    <span class="close">&times;</span>
-
-    <!-- Modal Content (The Image) -->
-    <img class="modal-content" id="img01">
-
-    <!-- Modal Caption (Image Text) -->
-    <div id="caption"></div>
-</div>
-
-
-
 <html>
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="calendrier.css" />
-        <title>Evenements - Calendrier</title>        
+        <title>Evenements - Calendrier</title>  
+        <!-- pour les classes popup -->
+        <link rel="stylesheet" href="popup.css" />
+        <script src="popup.js"></script>      
     </head>
 
 
     <body>
 
-        <!-- This design was lifted from https://advent.wellingtonnz.com/ as an exercise to get familiar with using CSS grid for layouts :) -->
-
-        <div id="modal">
-            <div class="mask"></div>
-            <div class="container auto">
-
-
-
-                <button class="button" onclick="window.location.href = '../maps.html';">Retour</button>
-                <div class="message"></div>
-                
+        <!-- Mise en place du calendrier -->
+        <div class="grid">
+            <button class="grid__item grid__item--sun grid__item--1" id="bouton1" >                        
+                <span class="grid__item-door">
+                    1
+                </span>
+                <span class="grid__item-shadow"></span>                
+            </button>
+            <!-- Début popup -->
+            <img id="myImg" src="imageCookies.jpg" alt="Cookies" style="display:none;" style="width:100%;max-width:300px">
+            <div id="myModal" class="modal">  
+              <span class="close">&times;</span>  
+              <img class="modal-content" id="img01">   
+              <div id="caption"></div>
             </div>
+            <!-- Fin popup -->
+
+            <button class="grid__item grid__item--sky grid__item--2" id="bouton2">               
+                <span class="grid__item-door">
+                    2
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+
+            <button class="grid__item --lg grid__item--rose grid__item--3">
+                <span class="grid__item-door">
+                    3
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--moss grid__item--4">
+                <span class="grid__item-door">
+                    4
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--5">
+                <span class="grid__item-door">
+                    5
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--6">
+                <span class="grid__item-door">
+                    6
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--rose grid__item--7">
+                <span class="grid__item-door">
+                    7
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--sun grid__item--8">
+                <span class="grid__item-door">
+                    8
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--sun grid__item--9">
+                <span class="grid__item-door">
+                    9
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--10">
+                <span class="grid__item-door">
+                    10
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--sky grid__item--11">
+                <span class="grid__item-door">
+                    11
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--12">
+                <span class="grid__item-door">
+                    12
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--moss grid__item--13">
+                <span class="grid__item-door">
+                    13
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--14">
+                <span class="grid__item-door">
+                    14
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--rose grid__item--15">
+                <span class="grid__item-door">
+                    15
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--sky grid__item--16">
+                <span class="grid__item-door">
+                    16
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--17">
+                <span class="grid__item-door">
+                    17
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--sky grid__item--18">
+                <span class="grid__item-door">
+                    18
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--rose grid__item--19">
+                <span class="grid__item-door">
+                    19
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--rose grid__item--20">
+                <span class="grid__item-door">
+                    20
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--sun grid__item--21">
+                <span class="grid__item-door">
+                    21
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item  grid__item--sun grid__item--22">
+                <span class="grid__item-door">
+                    22
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--23">
+                <span class="grid__item-door">
+                    23
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
+            <button class="grid__item grid__item--sky grid__item--24">
+                <span class="grid__item-door">
+                    24
+                </span>
+                <span class="grid__item-shadow"></span>
+            </button>
         </div>
-    
-<!-- grid__item--rose, grid__item--sun, sky = couleurs -->
 
 
-
-<!-- ajouter zone de texte dans les popup pour rentrer l'adresse mail -->
-<!-- faire en sorte qu'on puisse réellement s'envoyer les recettes par mail  -->
-
-<div class="grid">
-        <button class="grid__item grid__item--sun grid__item--1" >
-        <span class="grid__item-door">
-            1
-        </span>
-        <span class="grid__item-shadow"></span>
-        
-    </button>
-    <button class="grid__item grid__item--sky grid__item--2"
-    onclick="pop.open('Cours de cuisine', 'Comment faire des cookies ?<br>- Mettre des oeufs<br>- de la farine')">
-        <span class="grid__item-door">
-            2
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item --lg grid__item--rose grid__item--3">
-        <span class="grid__item-door">
-            3
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--moss grid__item--4">
-        <span class="grid__item-door">
-            4
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--5">
-        <span class="grid__item-door">
-            5
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--6">
-        <span class="grid__item-door">
-            6
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--rose grid__item--7">
-        <span class="grid__item-door">
-            7
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--sun grid__item--8">
-        <span class="grid__item-door">
-            8
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--sun grid__item--9">
-        <span class="grid__item-door">
-            9
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--10">
-        <span class="grid__item-door">
-            10
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--sky grid__item--11">
-        <span class="grid__item-door">
-            11
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--12">
-        <span class="grid__item-door">
-            12
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--moss grid__item--13">
-        <span class="grid__item-door">
-            13
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--14">
-        <span class="grid__item-door">
-            14
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--rose grid__item--15">
-        <span class="grid__item-door">
-            15
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--sky grid__item--16">
-        <span class="grid__item-door">
-            16
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--17">
-        <span class="grid__item-door">
-            17
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--sky grid__item--18">
-        <span class="grid__item-door">
-            18
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--rose grid__item--19">
-        <span class="grid__item-door">
-            19
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--rose grid__item--20">
-        <span class="grid__item-door">
-            20
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--sun grid__item--21">
-        <span class="grid__item-door">
-            21
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item  grid__item--sun grid__item--22">
-        <span class="grid__item-door">
-            22
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--23">
-        <span class="grid__item-door">
-            23
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-    <button class="grid__item grid__item--sky grid__item--24">
-        <span class="grid__item-door">
-            24
-        </span>
-        <span class="grid__item-shadow"></span>
-    </button>
-
-</div>
-
-
-</body>
+    </body>
 </html>
 
+
+<html>
+  <script src="popup.js"></script>
+</html>   
 
 

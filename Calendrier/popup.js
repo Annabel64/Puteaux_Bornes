@@ -1,35 +1,21 @@
-alert('rr');
+// Get the modal
+var modal = document.getElementById('myModal');
 
-var pop = {
-  // (A) ATTACH POPUP HTML
-  pWrap : null,  // html popup wrapper
-  pTitle : null, // html popup title
-  pText : null,  // html popup text
-  init : () => {
-    // (A1) POPUP WRAPPER
-    pop.pWrap = document.createElement("div");
-    pop.pWrap.id = "popwrap";
-    document.body.appendChild(pop.pWrap);
+// Get the image and insert it inside the modal - use its "alt" text as a caption
+var img = document.getElementById("myImg");
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+bouton1.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = img.src;
+  captionText.innerHTML = img.alt;
+}
 
-    // (A2) POPUP INNERHTML
-    pop.pWrap.innerHTML =
-    `<div id="popbox">
-      <h1 id="poptitle"></h1>
-      <p id="poptext"></p>
-      <div id="popclose" onclick="pop.close()">&#9746;</div>
-    </div>`;
-    pop.pTitle = document.getElementById("poptitle");
-    pop.pText = document.getElementById("poptext");
-  },
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
 
-  // (B) OPEN POPUP
-  open : (title, text) => {
-    pop.pTitle.innerHTML = title;
-    pop.pText.innerHTML = text;
-    pop.pWrap.classList.add("open");
-  },
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-  // (C) CLOSE POPUP
-  close : () => { pop.pWrap.classList.remove("open"); }
-};
-window.addEventListener("DOMContentLoaded", pop.init); 
