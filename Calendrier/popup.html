@@ -4,14 +4,23 @@
     <link rel="stylesheet" href="popup.css" />
     <script src="popup.js"></script>
   </head>
-  <body> 
-    <button id="bouton1" type="button">Cliquez</button>
-    <img id="myImg" src="imageCookies.jpg" alt="Cookies" style="display:none;" style="width:100%;max-width:300px">
-    <div id="myModal" class="modal">  
-      <span class="close">&times;</span>  
+  <body>
+    <button id="bouton1" type="button" onclick="popup('myModal1','myImg1','img01','caption1','close1');">Cliquez</button>
+    <img id="myImg1" src="imageCookies.jpg" alt="Cookies" style="display:none;" style="width:100%;max-width:300px">
+    <div id="myModal1" class="modal">  
+      <span id="c1" class="close1">&times;</span>  
       <img class="modal-content" id="img01">   
-      <div id="caption"></div>
-    </div>     
+      <div id="caption1"></div>
+    </div> 
+  
+    <button id="bouton2" type="button" onclick="popup('myModal2','myImg2','img02','caption2','close2');">Cliquez</button>
+    <img id="myImg2" src="smiley.jpg" alt="Smile" style="display:none;" style="width:100%;max-width:300px">
+    <div id="myModal2" class="modal">  
+      <span id="c2" class="close2">&times;</span>  
+      <img class="modal-content" id="img02">   
+      <div id="caption2"></div>
+    </div>
+
   </body>
 </html> 
 

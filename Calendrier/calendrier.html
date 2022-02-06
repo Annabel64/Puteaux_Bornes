@@ -18,29 +18,19 @@
 
         <!-- Mise en place du calendrier -->
         <div class="grid">
-            <button class="grid__item grid__item--sun grid__item--1" id="bouton1" >                        
+            <button class="grid__item grid__item--sun grid__item--1" onclick="popup('myModal1','myImg1','img01','caption1','close1');">                        
                 <span class="grid__item-door">
                     1
                 </span>
                 <span class="grid__item-shadow"></span>                
-            </button>
-            <!-- Début popup -->
-            <img id="myImg" src="imageCookies.jpg" alt="Cookies" style="display:none;" style="width:100%;max-width:300px">
-            <div id="myModal" class="modal">  
-              <span class="close">&times;</span>  
-              <img class="modal-content" id="img01">   
-              <div id="caption"></div>
-            </div>
-            <!-- Fin popup -->
-
-            <button class="grid__item grid__item--sky grid__item--2" id="bouton2">               
+            </button> 
+            <button class="grid__item grid__item--sky grid__item--2" onclick="popup('myModal2','myImg2','img02','caption2','close2');">               
                 <span class="grid__item-door">
                     2
                 </span>
                 <span class="grid__item-shadow"></span>
             </button>
-
-            <button class="grid__item --lg grid__item--rose grid__item--3">
+            <button class="grid__item --lg grid__item--rose grid__item--3" onclick="popup('myModal3','myImg3','img03','caption3','close3');">
                 <span class="grid__item-door">
                     3
                 </span>
@@ -172,8 +162,36 @@
                 </span>
                 <span class="grid__item-shadow"></span>
             </button>
-        </div>
 
+             
+
+        </div>
+        <!-- Gestion des popups -->
+        <!-- Il faut les mettre après la div grid car sinon ça fait disparaitre une partie du calendrier -->
+        <!-- Début popup case1 -->
+        <img id="myImg1" src="imageCookies.jpg" alt="Cookies" style="display:none;" style="width:100%;max-width:300px">
+        <div id="myModal1" class="modal">  
+          <span class="close1">&times;</span>  
+          <img class="modal-content" id="img01">   
+          <div id="caption1"></div>
+        </div>
+        <!-- Fin popup -->
+        <!-- Début popup case2 -->
+       <img id="myImg2" src="smiley.jpg" alt="Smile" style="display:none;" style="width:100%;max-width:300px">
+       <div id="myModal2" class="modal">  
+           <span class="close2">&times;</span>  
+           <img class="modal-content" id="img02">   
+           <div id="caption2"></div>
+       </div>
+       <!-- Fin popup -->
+       <!-- Début popup case3 -->
+        <img id="myImg3" src="smiley.jpg" alt="Smile" style="display:none;" style="width:100%;max-width:300px">
+        <div id="myModal3" class="modal">  
+            <span class="close3">&times;</span>  
+            <img class="modal-content" id="img03">   
+            <div id="caption3"></div>
+        </div>
+        <!-- Fin popup -->
 
     </body>
 </html>
