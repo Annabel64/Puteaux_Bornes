@@ -5,7 +5,10 @@
     transition: 0.3s;
   }
   
-
+body {
+    height: 100%;
+    overflow-y: hidden;
+}
 
   #myImg1:hover, #myImg2:hover, #myImg3:hover {opacity: 0.7;}
   
