@@ -3,12 +3,22 @@ body {
     height: 100%;
     overflow-y: hidden;
 }
+
 button {
     cursor: pointer;
     margin: 0;
     padding: 0;
     border: 0;
 }
+
+.bouton_retour{
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  width:55px;
+  height:55px;
+}
+
 .grid {
     display: grid;
     height: 150vh;
@@ -57,7 +67,7 @@ button {
     bottom: 0;
     left: -1px;
     right: 0;
-    background-color: #e3fffd;
+    background-color: rgb(253, 239, 227);
     border: 1px dashed #333;
     color: #333;
     display: flex;
@@ -90,16 +100,16 @@ button {
     font-size: 400%; /*taille écriture*/
 }
 .grid__item--moss .grid__item-door {
-    background-color: rgb(255, 219, 219);
+    background-color: rgb(192, 228, 195);
 }
 .grid__item--sky .grid__item-door {
-    background-color: #fee1ff;
+    background-color: rgb(243, 240, 215);
 }
 .grid__item--sun .grid__item-door {
-    background-color: #fcf4ce;
+    background-color: rgb(255, 223, 194);
 }
 .grid__item--rose .grid__item-door {
-    background-color: #ffeadc;
+    background-color: rgb(255, 191, 134);
 }
 .grid__item--1 {
     grid-area: 2 / span 1 / span 1;

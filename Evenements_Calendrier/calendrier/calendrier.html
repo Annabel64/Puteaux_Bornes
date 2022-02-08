@@ -4,13 +4,17 @@
 
 <!DOCTYPE html>
 <html>
+
+
     <head>
         <meta charset="utf-8" />
         <link rel="stylesheet" href="calendrier.css" />
         <title>Evenements - Calendrier</title>  
         <!-- pour les classes popup -->
         <link rel="stylesheet" href="popup.css" />
-        <script src="popup.js"></script>      
+        <script src="popup.js"></script> 
+        <input class="bouton_retour" type="image" alt="Button" src="../../images/icone_retour.png"
+            onclick="window.location.href = '../evenement.html';">
     </head>
 
 
@@ -48,7 +52,7 @@
                 </span>
                 <span class="grid__item-shadow"></span>
             </button>
-            <button class="grid__item grid__item--6">
+            <button class="grid__item grid__item--sky grid__item--6">
                 <span class="grid__item-door">
                     6
                 </span>
@@ -72,7 +76,7 @@
                 </span>
                 <span class="grid__item-shadow"></span>
             </button>
-            <button class="grid__item grid__item--10">
+            <button class="grid__item grid__item--moss grid__item--10">
                 <span class="grid__item-door">
                     10
                 </span>
@@ -150,7 +154,7 @@
                 </span>
                 <span class="grid__item-shadow"></span>
             </button>
-            <button class="grid__item grid__item--23">
+            <button class="grid__item grid__item--moss grid__item--23">
                 <span class="grid__item-door">
                     23
                 </span>
@@ -163,9 +167,9 @@
                 <span class="grid__item-shadow"></span>
             </button>
 
-             
-
         </div>
+    
+
         <!-- Gestion des popups -->
         <!-- Il faut les mettre après la div grid car sinon ça fait disparaitre une partie du calendrier -->
         <!-- Début popup case1 -->
@@ -194,13 +198,17 @@
             <div id="caption3"></div>
         </div>
         <!-- Fin popup -->
-
     </body>
+
+    
+
 </html>
 
 
+
 <html>
-  <script src="popup.js"></script>
-</html>   
+    <script src="popup.js"></script>
+    
+</html>
 
 
