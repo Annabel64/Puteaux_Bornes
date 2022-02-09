@@ -1,52 +1,82 @@
 //Still to be modified with right connection informations
 
-// importation de mongoose pour communiquer avec MongoDB
-const mongoose = require('mongoose')
+const {MongoClient} = require('mongodb');
 
-const { Etudiant, Cours, ReservationSalle } = require('./schemas')
+async function listDatabases(client){
+  databasesList = await client.db().admin().listDatabases();
 
-// cette fonction initialise la connexion avec mongodb
-function initialize () {
-  // (il faut utiliser l'url "mongodb://localhost:27018" sur mongodb compass pour se connecter à la bdd)
-  const uri = 'mongodb://leolearningmongodb:27017/leolearning'
-  // const uri = 'mongodb+srv://Yvann:Romane@leolearning.sdryf.mongodb.net/LeoLearning?retryWrites=true&w=majority'
+  console.log("Databases:");
+  databasesList.databases.forEach(db => console.log(` - ${db.name}`));
+};
 
-  // on supprime l'erreur : 'collection.ensureIndex is deprecate'
-  mongoose.set('useCreateIndex', true)
-  mongoose.set('autoIndex', true)
+async function main() {
+	const uri = "mongodb+srv://Whoever:CanAccess@clusterp.priic.mongodb.net/test";
+  const client = new MongoClient(uri);
 
-  // connexion à la base de données + drop des anciennes données
-  var counter = 0
-  function connectionCloseChecker () {
-    counter += 1
-    if (counter === 3) {
-      mongoose.connection.close()
-    }
+  try {
+    // Connect to the MongoDB cluster
+    await client.connect();
+
+    // Displays all available databases on server
+    //await listDatabases(client);
+
+    // Retrieve and displays shop with name : Coiffeur du coin
+    var docs = await FindByName(client, "Coiffeur du coin");
+    console.log(docs);
+
+    // Adds a shop with only name = "Jean-Miguel" (was just a draft)
+    //await CreateMultipleListings(client, [{"name": "Jean-Miguel"}]);
+
+  } catch (e) {
+      console.error(e);
+  } finally {
+      await client.close();
   }
-  mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
-      // no pb durant la connexion à la bdd
-      console.log('Connexion à mongo réussie 💪')
 
-      // // on nettoie les collections (est utile pour la phase de développement)
-      // Etudiant.deleteMany({}, (err) => {
-      //   if (err) console.log(' ❌  Erreur durant le nettoyage de la collection "étudiant"', err)
-      //   console.log(' ✔️  Nettoyage de la collection "étudiant" effectué')
-      //   connectionCloseChecker()
-      // })
-      // Cours.deleteMany({}, (err) => {
-      //   if (err) console.log(' ❌  Erreur durant le nettoyage de la collection "cours"', err)
-      //   console.log(' ✔️  Nettoyage de la collection "cours" effectué')
-      //   connectionCloseChecker()
-      // })
-      // ReservationSalle.deleteMany({}, (err) => {
-      //   if (err) console.log(' ❌  Erreur durant le nettoyage de la collection "reservationsalles"', err)
-      //   console.log(' ✔️  Nettoyage de la collection "reservationsalles" effectué')
-      //   connectionCloseChecker()
-      // })
-    })
-    // pb durant la connexion à la bdd
-    .catch(() => console.log('Erreur durant la connexion à mongo 😞'))
 }
 
-module.exports = initialize;
+//Find document related to shop name, returns null if not found
+async function FindByName(client, shopName){
+  const cursor = await client.db("PuteauxCommerces").collection("CollectionCommerces").findOne(
+    {
+      name: shopName
+    }
+  );
+  if (cursor == null) {console.log("Haven't found any shop with this name...")}
+  else {console.log(`Found : ${shopName} -->`)}
+  return cursor;
+}
+
+//Insert/Add several documents to the database
+async function CreateMultipleListings(client, newListings){
+  const result = await client.db("PuteauxCommerces").collection("CollectionCommerces").insertMany(newListings);
+  console.log(`${result.insertedCount} new listing(s) created with the following id(s):`);
+  console.log(result.insertedIds); 
+}
+//How to be used : await CreateMultipleListings(client, [{x}, {y}])    --> x and y being shop-model objects
+
+main();
+
+module.exports = FindByName;
+
+/*
+Document JSON model to be inserted :
+{
+    "name": "Coiffeur du coin",
+    "type": "Coiffeur",
+    
+    "longitude": "0.2132",
+    "latitude": "0.4587",
+    
+    "logo": "path/coiffeur.jpg",
+    "affluence": "path/affluence.png",
+    
+    "description": "Bienvenue chez le Coiffeur du coin ! Dégradé ou carré plongeant avec lissage brésilien, on sait tout faire.",
+    "phoneNumber": "0783045634",
+    "adresse": "45 rue du Chene Majestueux",
+    "email": "CoiffeurDuCoin@cdc.fr",
+    "siteURL": "coiffeurducoin.fr",
+    "socialsURL": [
+      "facebook/coiffeurducoin.fr", "tiktok.com/@cdcputeaux"]
+}
+*/
