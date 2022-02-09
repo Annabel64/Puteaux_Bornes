@@ -17,6 +17,7 @@ function popup(IdMosal, IdImg,IdModalImg, IdCaption, ClasseSpan){
     modal.style.display = "block";
     modalImg.src = img.src;
     captionText.innerHTML = img.alt;
+    
   
   // alert(modal.style.display);
   // Get the <span> element that closes the modal

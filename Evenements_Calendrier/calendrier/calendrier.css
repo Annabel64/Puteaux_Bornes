@@ -18,6 +18,14 @@ button {
   height:55px;
 }
 
+.qrcode{
+    position: absolute;
+    top: 75%;
+    left: 15%;
+    width:75px;
+    height:75px;
+}
+
 .grid {
     display: grid;
     height: 150vh;
@@ -26,12 +34,7 @@ button {
     justify-content: center;
     align-content: top;
 }
-/*@media (screen ) {
-    .grid {
-        grid-template-columns: repeat(10, 100px [col-start]);
-        grid-template-rows: repeat(6, 100px [row-start]);
-   }
-}*/
+
 .grid__item {
     position: relative;
     font-size: 1rem;
