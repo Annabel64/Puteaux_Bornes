@@ -11,7 +11,7 @@ async function main() {
 	const uri = "mongodb+srv://Whoever:CanAccess@clusterp.priic.mongodb.net/test";
   const client = new MongoClient(uri);
 
-  try {
+try {
     // Connect to the MongoDB cluster
     await client.connect();
 
@@ -31,7 +31,7 @@ async function main() {
       await client.close();
   }
 }
-+//Find document related to shop name, returns null if not found
+//Find document related to shop name, returns null if not found
 async function FindByName(client, shopName){
     const cursor = await client.db("PuteauxCommerces").collection("CollectionCommerces").findOne(
       {
