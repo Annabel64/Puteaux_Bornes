@@ -19,6 +19,14 @@ button {
   height:55px;
 }
 
+.qrcode{
+    position: absolute;
+    top: 75%;
+    left: 15%;
+    width:75px;
+    height:75px;
+}
+
 .grid {
     display: grid;
     height: 150vh;
