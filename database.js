@@ -74,15 +74,17 @@ async function ScriptExample(){
 
   //var doc = await FindByName(client, "Coiffeur du coin");
   var docs = await FindByCategory(client, "Coiffeur");
-  console.log(docs);
-
+  // console.log('documents'+docs[0].name);
+  
   await closeConnection();
+  return Promise.resolve(docs);
 }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 //  ScriptExample() is the only function called by "node database.js", it shows functions calling order  //
     ///////////////////////////////////////////////////////////////////////////////////////////////////
-ScriptExample();
+ScriptExample().then(console.log);
+
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
 //  "FindBy..." are callable in other javascript functions once connection with database has been set  //
@@ -92,6 +94,8 @@ module.exports = FindByCategory;
 
 module.exports = openConnection;
 module.exports = closeConnection;
+
+module.exports = ScriptExample;
 
 
 
