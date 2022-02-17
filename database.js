@@ -56,7 +56,7 @@ async function FindByName(client, shopName){
 async function FindByCategory(client, shopCategory){
   const filtered = await client.db("PuteauxCommerces").collection("CollectionCommerces").find({type:shopCategory}).toArray();;
   if (filtered == null) {console.log("Maybe this category doesn't exist... ?")}
-  return filtered;
+  return filtered;  
 }
 
 //Insert/Add several documents to the database
@@ -72,28 +72,36 @@ async function CreateMultipleListings(client, newListings){
 //The order functions need to be called to ensure database safety
 async function ScriptExample(){
   await openConnection();
-  //var doc = await FindByName(client, "Coiffeur du coin");
-  var docs = await FindByCategory(client, "Coiffeur");
-  
+  const docs = await FindByCategory(client, "Coiffeur");
   await closeConnection();
-  return await Promise.resolve(docs[0]);
+  docs = Promise.resolve(docs[0]);
+
+  var l = Object.keys(docs).map(function (cle) {
+    return [Number(cle), docs[cle]];
+  });
+
+  msg.style.color = "#12be00"
+  msg.innerText = l;
+  document.write(msg);
 }
+
+// https://codepen.io/exemple/pen/PoqxQvK?editors=1010
+// POURQUOI CA MARCHE PAS ?? CA MARCHE AVEC CE LIEN
+
+
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 //  ScriptExample() is the only function called by "node database.js", it shows functions calling order  //
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 ScriptExample().then(console.log);
+document.getElt('input1').value = ScriptExample();
+
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
 //  "FindBy..." are callable in other javascript functions once connection with database has been set  //
     /////////////////////////////////////////////////////////////////////////////////////////////////
-// exports.FindByName = FindByName();
-// exports.FindByCategory = FindByCategory();
-// exports.openConnection = openConnection();
-// exports.closeConnection = closeConnection();
-// exports.ScriptExample = ScriptExample();
-
 
 module.exports = FindByName;
 module.exports = FindByCategory;
@@ -344,3 +352,5 @@ const newListings = [
     "socialsURL": []
 }
 ];
+
+

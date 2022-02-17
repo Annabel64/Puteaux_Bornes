@@ -1,24 +1,30 @@
-<!DOCTYPE html>
-<html>
+<script src="../database.js"> </script>
+Voila le resultat de la fonction ScriptExample:
+<button onclick=ScriptExample()>Print</button>
+<span id="msg"></span>
+
+
+
+<!-- <html>
+    <head>
+
+    </head>
+    
 
     <body>
-        <!-- Il faut essayer de récupérer la fonction js dans le script -->
+        <p> This is HTML </p>
+    </body>
 
-        <script type="text/javascript" src="../database.js">
-            const Database = require('../database.js');
-            let message= Database.ScriptExample().then(console.log);
+    <script>
+        document.write("yo");
+    </script>
 
-            function msgprint(msg= message) {
-                    alert('alala',msg);
-                    // ScriptExample().then(console.log);
-                } 
-        </script>
-    </body>       
-    
-    <!-- On appelle la fonction alert pour voir si on a bien récupéré la valeur de la fonction -->
-    <form>
-        <input type="button" onclick="msgprint()" value="Message Print">
-    </form>
+    <script src="../database.js">
+        const Database = require('../database.js');
+        let message = Database.ScriptExample().then(console.log);
+        document.getElementById()
+    </script>
+
 
 </html>
-
+ -->
