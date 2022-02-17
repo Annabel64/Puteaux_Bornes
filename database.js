@@ -1,6 +1,7 @@
 //Still to be modified with right connection informations
 
 const {MongoClient} = require('mongodb');
+const { kill } = require('process');
 
 const uri = "mongodb+srv://Whoever:CanAccess@clusterp.priic.mongodb.net/test";
 const client = new MongoClient(uri);
@@ -71,13 +72,11 @@ async function CreateMultipleListings(client, newListings){
 //The order functions need to be called to ensure database safety
 async function ScriptExample(){
   await openConnection();
-
   //var doc = await FindByName(client, "Coiffeur du coin");
   var docs = await FindByCategory(client, "Coiffeur");
-  // console.log('documents'+docs[0].name);
   
   await closeConnection();
-  return Promise.resolve(docs);
+  return await Promise.resolve(docs[0]);
 }
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -89,12 +88,17 @@ ScriptExample().then(console.log);
     /////////////////////////////////////////////////////////////////////////////////////////////////
 //  "FindBy..." are callable in other javascript functions once connection with database has been set  //
     /////////////////////////////////////////////////////////////////////////////////////////////////
+// exports.FindByName = FindByName();
+// exports.FindByCategory = FindByCategory();
+// exports.openConnection = openConnection();
+// exports.closeConnection = closeConnection();
+// exports.ScriptExample = ScriptExample();
+
+
 module.exports = FindByName;
 module.exports = FindByCategory;
-
 module.exports = openConnection;
 module.exports = closeConnection;
-
 module.exports = ScriptExample;
 
 
