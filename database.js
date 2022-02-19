@@ -94,8 +94,10 @@ async function ScriptExample(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 //  ScriptExample() is the only function called by "node database.js", it shows functions calling order  //
     ///////////////////////////////////////////////////////////////////////////////////////////////////
-ScriptExample().then(console.log);
-document.getElt('input1').value = ScriptExample();
+// ScriptExample().then(console.log);
+// document.getElt('input1').value = ScriptExample();
+FindByName(client, "Au_coin_des_barbus");
+
 
 
 
@@ -110,9 +112,9 @@ module.exports = closeConnection;
 module.exports = ScriptExample;
 
 
-
-
 //Documents JSON to be inserted :
+
+// REMARQUE: la moitié des termes est en anglais (name, fixedHTMLLink,...) et l'autre en français (horaires, latitude,...) donc ce serait pas mal de choisir l'un ou l'autre
 const newListings = [
 {
     "name": "Duplinat",
