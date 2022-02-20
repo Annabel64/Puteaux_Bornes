@@ -5,21 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puteaux Map Commerces</title>
-    <link rel="stylesheet" type="text/css" href="maps.css">
-
-</head>
-
-<body>
-
-    <h1>Map des Commerces de la ville de Puteaux :</h1>
-
-    <div id="map"></div>
+    <link rel="stylesheet" href="maps.css">
     <script src="maps.js"></script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDebkzU9ET0wtKrsG7v_xKu-amoNcGz1aA&map_ids=20ffa254f66d015d&callback=initMap">
+
+</head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <center>
+            <h1>_________</h1>
+            <h1>Page pour la recherche de boutiques :</h1>
+            <h3>Entrez le nom de la boutique </h3>
+            <input type="search" id="search" value="">
+            <button>Rechercher</button>
+
+            <h3>Choississez la catégorie </h3>
+
+            <input type="button" id="btnClick1" value="Coiffeur" style="height:100px; width:200px" onclick="ClickCoiffeur();">
+            <input type="button" id="btnClick2" value="BarberShop" style="height:100px; width:200px" onclick="ClickBarberShop();">
+            <input type="button" id="btnClick3" value="Imprimerie" style="height:100px; width:200px" onclick="ClickImprimerie();">
+            <input type="button" id="btnClick4" value="Restaurant" style="height:100px; width:200px" onclick="ClickRestaurant();">
+            <br><br>
+            <input type="button" id="btnClick5" value="Pharmacie" style="height:100px; width:200px" onclick="ClickPharmacie();">
+            <input type="button" id="btnClick6" value="Fleuriste" style="height:100px; width:200px" onclick="ClickFleuriste();">
+            <input type="button" id="btnClick7" value="Mode" style="height:100px; width:200px" onclick="ClickMode();">
+            <input type="button" id="btnClick8" value="Decoration" style="height:100px; width:200px" onclick="ClickDecoration();">
+            <br><br><br>
+            <input type="button" id="btnClick9" value="Réinitialiser la map" style="height:100px; width:200px" onclick="ClickReinitialiser();">
+
+        </center>
+    </div>
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Recherche</span>
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
     </script>
 
-    <button class="button" onclick="window.location.href = 'accueil.html';">Retour</button>
+    <center>
+        <h1>Map des Commerces de la ville de Puteaux :</h1>
+    </center>
+
+    <div id="map"></div>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDebkzU9ET0wtKrsG7v_xKu-amoNcGz1aA&map_ids=20ffa254f66d015d&callback=initMapMarker">
+    </script>
+
+    <button class="button" onclick="window.location.href = 'Puteaux.html';">Retour</button>
     <button class="btn2" onclick="window.location.href = 'evenement.html';">Evenement</button>
     <button class="btn">Crypto Monnaie</button>
 

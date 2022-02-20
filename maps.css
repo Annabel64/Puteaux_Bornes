@@ -16,6 +16,55 @@ body {
     height: 80vh;
 }
 
+body {
+    font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgba(41, 43, 41, 0.596);
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align: center;
+}
+
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
 
 .btn {
     float:right;
@@ -34,37 +83,37 @@ body {
     text-decoration: none;
 }
 
-    .btn:hover,
-    .btn:focus {
-        border: 1px solid #12163b;
-        background: #3642b2;
-        background: -webkit-gradient(linear, left top, left bottom, from(#3642b2), to(#131840));
-        background: -moz-linear-gradient(top, #3642b2, #131840);
-        background: linear-gradient(to bottom, #3642b2, #131840);
-        color: #ffffff;
-        text-decoration: none;
-    }
+.btn:hover,
+.btn:focus {
+    border: 1px solid #12163b;
+    background: #3642b2;
+    background: -webkit-gradient(linear, left top, left bottom, from(#3642b2), to(#131840));
+    background: -moz-linear-gradient(top, #3642b2, #131840);
+    background: linear-gradient(to bottom, #3642b2, #131840);
+    color: #ffffff;
+    text-decoration: none;
+}
 
-    .btn:active {
-        background: #101435;
-        background: -webkit-gradient(linear, left top, left bottom, from(#101435), to(#101435));
-        background: -moz-linear-gradient(top, #101435, #101435);
-        background: linear-gradient(to bottom, #101435, #101435);
-    }
+.btn:active {
+    background: #101435;
+    background: -webkit-gradient(linear, left top, left bottom, from(#101435), to(#101435));
+    background: -moz-linear-gradient(top, #101435, #101435);
+    background: linear-gradient(to bottom, #101435, #101435);
+}
 
-    .btn:before {
-        content: "\0000a0";
-        display: inline-block;
-        height: 24px;
-        width: 24px;
-        line-height: 24px;
-        margin: 0 4px -6px -4px;
-        position: relative;
-        top: 0px;
-        left: 0px;
-        background: url("images\\crypto.png");
-        background-size: 100% 100%;
-    }
+.btn:before {
+    content: "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: url("images\\crypto.png");
+    background-size: 100% 100%;
+}
 
 .button {
     display: inline-block;
@@ -102,7 +151,7 @@ body {
 
 
 .btn2 {
-    float:right;
+    float: right;
     display: inline-block;
     text-align: center;
     vertical-align: middle;
@@ -135,4 +184,3 @@ body {
         background: -moz-linear-gradient(top, #101435, #101435);
         background: linear-gradient(to bottom, #101435, #101435);
     }
-
