@@ -16,7 +16,7 @@ async function listDatabases(client){
 };
 
 //To be executed once at application beginning
-async function openConnection(){
+const openConnection = async function () {
   try {
     // Connect to the MongoDB cluster
     await client.connect();
@@ -30,7 +30,7 @@ async function insertRows(){
   CreateMultipleListings(client, newListings);
 }
 
-async function closeConnection(){
+const closeConnection = async function(){
   try {
     // Connect to the MongoDB cluster
     await client.close();
@@ -41,7 +41,7 @@ async function closeConnection(){
 }
 
 //Find document related to shop name, returns null if not found
-async function FindByName(client, shopName){
+const FindByName = async function (shopName) {
   const cursor = await client.db("PuteauxCommerces").collection("CollectionCommerces").findOne(
     {
       name: shopName
@@ -49,6 +49,7 @@ async function FindByName(client, shopName){
   );
   if (cursor == null) {console.log("Haven't found any shop with this name...")}
   else {console.log(`Found : ${shopName} -->`)}
+  console.log(cursor);
   return cursor;
 }
 
@@ -72,7 +73,7 @@ async function CreateMultipleListings(client, newListings){
 //The order functions need to be called to ensure database safety
 async function ScriptExample(){
   await openConnection();
-  const docs = await FindByCategory(client, "Coiffeur");
+  var docs = await FindByCategory(client, "Coiffeur");
   await closeConnection();
   docs = Promise.resolve(docs[0]);
 
@@ -85,6 +86,13 @@ async function ScriptExample(){
   document.write(msg);
 }
 
+var Script2Example = async function () {
+  await openConnection();
+  var docs = await FindByName("Duplinat");
+  //console.log(docs);
+  await closeConnection();
+}; 
+
 // https://codepen.io/exemple/pen/PoqxQvK?editors=1010
 // POURQUOI CA MARCHE PAS ?? CA MARCHE AVEC CE LIEN
 
@@ -96,9 +104,9 @@ async function ScriptExample(){
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 // ScriptExample().then(console.log);
 // document.getElt('input1').value = ScriptExample();
-FindByName(client, "Au_coin_des_barbus");
+// Just been commented : FindByName(client, "Au_coin_des_barbus");
 
-
+//Script2Example();
 
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -110,6 +118,7 @@ module.exports = FindByCategory;
 module.exports = openConnection;
 module.exports = closeConnection;
 module.exports = ScriptExample;
+module.exports = Script2Example;
 
 
 //Documents JSON to be inserted :
