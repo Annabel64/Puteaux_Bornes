@@ -8,6 +8,9 @@ const client = new MongoClient(uri);
 const puteauxDB = client.db("PuteauxCommerces");
 const commerces = puteauxDB.collection("CollectionCommerces");
 
+
+
+
 async function listDatabases(client){
   databasesList = await client.db().admin().listDatabases();
 
@@ -48,10 +51,23 @@ const FindByName = async function (shopName) {
     }
   );
   if (cursor == null) {console.log("Haven't found any shop with this name...")}
-  else {console.log(`Found : ${shopName} -->`)}
-  console.log(cursor);
+  // else {console.log(`Found : ${shopName} -->`)}
+  // console.log(cursor);
   return cursor;
 }
+
+async function LectureInstance(_modelSelect, _elem = null) {
+  var resul = []
+  await _modelSelect.find(_elem, function (err, _resCours) {
+    if (err) { throw err }
+    console.log('La demande de lecture a été traitée, voici le résultat: ')
+    resul = _resCours
+    return _resCours
+  })
+  return resul
+}
+
+
 
 //Return array of documents of one specified category
 async function FindByCategory(client, shopCategory){
