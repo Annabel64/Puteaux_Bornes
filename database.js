@@ -1,6 +1,7 @@
 //Still to be modified with right connection informations
 
 const {MongoClient} = require('mongodb');
+const { kill } = require('process');
 
 const uri = "mongodb+srv://Whoever:CanAccess@clusterp.priic.mongodb.net/test";
 const client = new MongoClient(uri);
@@ -15,7 +16,7 @@ async function listDatabases(client){
 };
 
 //To be executed once at application beginning
-async function openConnection(){
+const openConnection = async function () {
   try {
     // Connect to the MongoDB cluster
     await client.connect();
@@ -29,7 +30,7 @@ async function insertRows(){
   CreateMultipleListings(client, newListings);
 }
 
-async function closeConnection(){
+const closeConnection = async function(){
   try {
     // Connect to the MongoDB cluster
     await client.close();
@@ -40,7 +41,7 @@ async function closeConnection(){
 }
 
 //Find document related to shop name, returns null if not found
-async function FindByName(client, shopName){
+const FindByName = async function (shopName) {
   const cursor = await client.db("PuteauxCommerces").collection("CollectionCommerces").findOne(
     {
       name: shopName
@@ -48,14 +49,15 @@ async function FindByName(client, shopName){
   );
   if (cursor == null) {console.log("Haven't found any shop with this name...")}
   else {console.log(`Found : ${shopName} -->`)}
-  return cursor;
+  //console.log(cursor);
+  return Promise.resolve(cursor);
 }
 
 //Return array of documents of one specified category
 async function FindByCategory(client, shopCategory){
   const filtered = await client.db("PuteauxCommerces").collection("CollectionCommerces").find({type:shopCategory}).toArray();;
   if (filtered == null) {console.log("Maybe this category doesn't exist... ?")}
-  return filtered;
+  return filtered;  
 }
 
 //Insert/Add several documents to the database
@@ -71,36 +73,62 @@ async function CreateMultipleListings(client, newListings){
 //The order functions need to be called to ensure database safety
 async function ScriptExample(){
   await openConnection();
-
-  //var doc = await FindByName(client, "Coiffeur du coin");
   var docs = await FindByCategory(client, "Coiffeur");
-  // console.log('documents'+docs[0].name);
-  
   await closeConnection();
-  return Promise.resolve(docs);
+  docs = Promise.resolve(docs[0]);
+
+  var l = Object.keys(docs).map(function (cle) {
+    return [Number(cle), docs[cle]];
+  });
+
+  msg.style.color = "#12be00"
+  msg.innerText = l;
+  document.write(msg);
 }
+
+var Script2Example = async function () {
+    await openConnection();
+    var docs = await FindByName("Duplinat");
+    //console.log(docs);
+    await closeConnection();
+    return Promise.resolve(docs);
+};
+
+// https://codepen.io/exemple/pen/PoqxQvK?editors=1010
+// POURQUOI CA MARCHE PAS ?? CA MARCHE AVEC CE LIEN
+
+
+
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////
 //  ScriptExample() is the only function called by "node database.js", it shows functions calling order  //
     ///////////////////////////////////////////////////////////////////////////////////////////////////
-ScriptExample().then(console.log);
+// ScriptExample().then(console.log);
+// document.getElt('input1').value = ScriptExample();
+// Just been commented : FindByName(client, "Au_coin_des_barbus");
 
+async function finalScript(){
+    var commerce = await Script2Example();
+    console.log(commerce.name);
+}
+
+finalScript();
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
 //  "FindBy..." are callable in other javascript functions once connection with database has been set  //
     /////////////////////////////////////////////////////////////////////////////////////////////////
+
 module.exports = FindByName;
 module.exports = FindByCategory;
-
 module.exports = openConnection;
 module.exports = closeConnection;
-
 module.exports = ScriptExample;
-
-
+module.exports = Script2Example;
 
 
 //Documents JSON to be inserted :
+
+// REMARQUE: la moitié des termes est en anglais (name, fixedHTMLLink,...) et l'autre en français (horaires, latitude,...) donc ce serait pas mal de choisir l'un ou l'autre
 const newListings = [
 {
     "name": "Duplinat",
@@ -145,7 +173,7 @@ const newListings = [
     "description": "AU COIN DES BARBUS, VOTRE COIFFEUR BARBIER À PUTEAUX - Bienvenue dans l'univers 100% masculin du salon Au coin des barbus ! Chris et Max vous accueillent dans leur salon de coiffure et barbershop. Un lieu authentique qui recréé l’ambiance des années 40,50, un salon cool et hyper confortable. Chez Au coin des barbus, tout est pensé pour oublier le temps ! Chris et Max font des coupes qui se démarquent",
     "adresse" : "73 rue de la république",
     "horaires": {"Lundi": ["10h", "20h"], "Mardi": ["10h", "20h"], "Mercredi": ["10h", "20h"], "Jeudi": ["10h", "20h"], "Vendredi": ["10h", "20h"], "Samedi": ["9h", "19h"], "Dimanche": []},
-    "siteURL": "https://www.aucoindesbarbus.fr/ ",
+    "siteURL": "https://www.aucoindesbarbus.fr/ ",
     "innerHTMLlink" : "au_coin_des_barbus.html",
     "fixedlinePhone": "01 75 84 79 15",
     "mobilePhone": "",
@@ -160,7 +188,7 @@ const newListings = [
     "latitude": "2.2386962375595276",
     "logo": "CWallace.jpg",
     "description": "COIFFURE WALLACE - Notre salon vous propose de rafraîchir votre coupe de cheveux. Nos coiffeurs professionnels s'occupent de la beauté de votre chevelure avec des produits de qualité et notre savoir-faire. Avec ou sans rendez-vous, nous serons heureux de vous recevoir. Le jeudi et le vendredi, nous fermons plus tard pour votre convenance, venez en profiter !",
-    "adresse" : "35 boulevard Richard Wallace",
+    "adresse" : "35 boulevard Richard Wallace",
     "horaires": {"Lundi": ["9h30", "19h"], "Mardi": ["9h30", "19h"], "Mercredi": ["9h30", "19h"], "Jeudi": ["9h30", "21h"], "Vendredi": ["9h30", "21h"], "Samedi": ["9h30", "19h"], "Dimanche": []},
     "siteURL": "https://coiffurewallace.site-solocal.com/",
     "innerHTMLlink" : "Coiffure_Wallace.html",
@@ -296,7 +324,7 @@ const newListings = [
     "latitude": "2.2514822219654658",
     "logo": "VFE.jpg",
     "description": "ELYSA - C’est en septembre 2000 que j’ai repris cette boutique du centre-ville de Puteaux. Et depuis, je fais une sélection rigoureuse dans les collections de toutes les marques présentes en boutique. Les pièces choisies sont uniquement celles sur lesquelles j’ai eu un coup de cœur. J’attache beaucoup d’importance à la qualité, au touché, aux couleurs et à la cohérence des prix des vêtements proposés. Les clientes d’aujourd’hui sont des femmes actives, de toutes générations qui aiment, comme moi, la mode et le style. Alors, venez craquer en boutique !!!",
-    "adresse" : "105 Rue Jean Jaures ",
+    "adresse" : "105 Rue Jean Jaures ",
     "horaires": {"Lundi": [], "Mardi": ["10h", "19h30"], "Mercredi": ["10h", "19h30"], "Jeudi": ["10h", "19h30"], "Vendredi": ["10h", "19h30"], "Samedi": ["10h", "19h30"], "Dimanche": ["10h", "13h"]},
     "siteURL": "https://elysa-puteaux.com/",
     "innerHTMLlink" : "elysa.html",
@@ -313,7 +341,7 @@ const newListings = [
     "latitude": "2.2398970136979095",
     "logo": "SSerenity.jpg",
     "description": "So Serenity est un espace dédié au bien-être. Grâce à son équipe de spécialistes, So Serenity vous propose de prendre soin de votre corps, mais aussi de votre esprit. Massages du monde, spécifiques, sur tatamis ; ostéopathie ; psychologie ; sophrologie, yoga… tout est pensé pour votre bien-être. Jusque dans la salle d’attente, où des petites activités de lâcher-prise vous feront patienter tout en douceur : mandalas art-thérapie, magazines de bien-être, guide de développement personnel…",
-    "adresse" : "60 rue Eugène Eichenberger",
+    "adresse" : "60 rue Eugène Eichenberger",
     "horaires": {"Lundi": ["8h30", "20h"], "Mardi": ["8h30", "20h"], "Mercredi": ["8h30", "20h"], "Jeudi": ["8h30", "20h"], "Vendredi": ["8h30", "20h"], "Samedi": ["13h30", "20h"], "Dimanche": []},
     "siteURL": "https://www.massageaparis.fr/so-serenity-salon-massage-le-defense-92911.php",
     "innerHTMLlink" : "so_serenity.html",
@@ -334,7 +362,7 @@ const newListings = [
     "horaires": {"Lundi": ["Consulter les gardes"], "Mardi": ["Consulter les gardes"], "Mercredi": ["Consulter les gardes"], "Jeudi": ["Consulter les gardes"], "Vendredi": ["Consulter les gardes"], "Samedi": ["Consulter les gardes"], "Dimanche": ["Consulter les gardes"]},
     "siteURL": "https://pharmacieboieldieu.fr/",
     "innerHTMLlink" : "pharmacie_boieldieu.html",
-    "fixedlinePhone": "01 47 76 16 49 ",
+    "fixedlinePhone": "01 47 76 16 49 ",
     "mobilePhone": "",
     "email": "",
     "socialsURL": []
