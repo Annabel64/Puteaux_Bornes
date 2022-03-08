@@ -1,5 +1,6 @@
 //const Script2Example = require('../database.js');
 const closeConnection = require('../database.js');
+const finalScript = require('../database.js');
 const openConnection = require('../database.js');
 const FindByName = require('../database.js');
 
@@ -7,16 +8,18 @@ async function afficher_infos(nom_commerce){
 
     openConnection;
     // En liant à la bdd mais je n'ai pas pu tester car il y a un pb avec le fichier database.js
-    var donnees = FindByName(nom_commerce);
-
+    console.log('la');
+    //var donnees = await FindByName(nom_commerce);
+    var donnees = await finalScript();
+    console.log('lala');
 // MAINTENANT CA MARCHE ET LA IL FAUT JUSTE LIER TEST.JS ET TEST2.HTML !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-    //document.getElementById("nom").innerHTML = donnees.name;
-    //document.getElementById("adresse").innerHTML = donnees.adresse; 
-    //document.getElementById("tel").innerHTML = donnees.fixedlinePhone;
-    //document.getElementById("description").innerHTML = donnees.description;
+    // document.getElementById("nom").innerHTML = donnees.name;
+    // document.getElementById("adresse").innerHTML = donnees.adresse; 
+    // document.getElementById("tel").innerHTML = donnees.fixedlinePhone;
+    // document.getElementById("description").innerHTML = donnees.description;
     
-    // // Sans lier à la bdd. Fonctionne
+    // Sans lier à la bdd. Fonctionne
     // document.getElementById("nom").innerHTML = "Au coin des barbus";
     // document.getElementById("adresse").innerHTML = "73 rue de la république"; 
     // document.getElementById("tel").innerHTML = "01 75 84 79 15";
@@ -24,6 +27,21 @@ async function afficher_infos(nom_commerce){
     // alert('lancéééé');  
 
     closeConnection;
+    Promise.resolve(donnees).then(console.log);
 }
 
+// console.log('lalala');
 afficher_infos("Duplinat");
+// console.log('lalalala');
+
+// async function lienHTML(nom_commerce){
+//     var donnees=afficher_infos(nom_commerce)
+//     document.getElementById("nom").innerHTML = donnees.name;
+//     document.getElementById("adresse").innerHTML = donnees.adresse;
+//     document.getElementById("tel").innerHTML = donnees.fixedlinePhone;
+//     document.getElementById("description").innerHTML = donnees.description;
+//     console.log(Promise.resolve(donnees));
+// }
+
+// lienHTML("Duplinat");
+// module.exports = lienHTML;
