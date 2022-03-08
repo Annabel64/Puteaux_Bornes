@@ -49,14 +49,9 @@ const FindByName = async function (shopName) {
   );
   if (cursor == null) {console.log("Haven't found any shop with this name...")}
   else {console.log(`Found : ${shopName} -->`)}
-<<<<<<< HEAD
   //console.log(cursor);
   return Promise.resolve(cursor);
-=======
-  console.log(cursor);
-  return cursor;
->>>>>>> 6826e7865e96d1d42645967c1e4c489720da2f72
-}
+
 
 //Return array of documents of one specified category
 async function FindByCategory(client, shopCategory){
@@ -92,20 +87,12 @@ async function ScriptExample(){
 }
 
 var Script2Example = async function () {
-<<<<<<< HEAD
     await openConnection();
     var docs = await FindByName("Duplinat");
     //console.log(docs);
     await closeConnection();
     return Promise.resolve(docs);
 };
-=======
-  await openConnection();
-  var docs = await FindByName("Duplinat");
-  //console.log(docs);
-  await closeConnection();
-}; 
->>>>>>> 6826e7865e96d1d42645967c1e4c489720da2f72
 
 // https://codepen.io/exemple/pen/PoqxQvK?editors=1010
 // POURQUOI CA MARCHE PAS ?? CA MARCHE AVEC CE LIEN
@@ -119,11 +106,9 @@ var Script2Example = async function () {
 // ScriptExample().then(console.log);
 // document.getElt('input1').value = ScriptExample();
 // Just been commented : FindByName(client, "Au_coin_des_barbus");
-<<<<<<< HEAD
-=======
+
 
 //Script2Example();
->>>>>>> 6826e7865e96d1d42645967c1e4c489720da2f72
 
 async function finalScript(){
     var commerce = await Script2Example();
@@ -385,10 +370,5 @@ const newListings = [
     "email": "",
     "socialsURL": []
 }
-<<<<<<< HEAD
-];
-=======
-];
 
-
->>>>>>> 6826e7865e96d1d42645967c1e4c489720da2f72
+]};
