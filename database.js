@@ -114,7 +114,7 @@ module.exports = FindByCategory;
 module.exports = openConnection;
 module.exports = closeConnection;
 module.exports = Script2Example;
-module.exports = finalScript;
+// module.exports = finalScript;
 
 
 //Documents JSON to be inserted :
