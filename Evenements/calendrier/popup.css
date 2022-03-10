@@ -1,13 +1,15 @@
 /* Style the Image Used to Trigger the Modal */
-#myImg1, #myImg2, #myImg3 {
+#myImg1, #myImg2, #myImg3, #myImg4, #myImg5, #myImg6, #myImg7, #myImg8, #myImg9, #myImg10, #myImg11, #myImg12, #myImg13, #myImg14 {
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
   }
+
+  
   
 
 
-  #myImg1:hover, #myImg2:hover, #myImg3:hover {opacity: 0.7;}
+  #myImg1:hover, #myImg2:hover, #myImg3:hover, #myImg4:hover, #myImg5:hover, #myImg6:hover, #myImg7hover, #myImg8:hover, #myImg9:hover, #myImg10:hover, #myImg11:hover, #myImg12:hover, #myImg13:hover, #myImg14:hover {opacity: 0.7;}
   
   /* The Modal (background) */
   .modal {
@@ -33,7 +35,7 @@
   }
   
   /* Caption of Modal Image (Image Text) - Same Width as the Image */
-  #caption1, #caption2, #caption3 {
+  #caption1, #caption2, #caption3, #caption4, #caption5, #caption6, #caption7, #caption8, #caption9, #caption10, #caption11, #caption12, #caption13, #caption14 {
     margin: auto;
     display: block;
     width: 80%;
@@ -45,7 +47,7 @@
   }
   
   /* Add Animation - Zoom in the Modal */
-  .modal-content, #caption1, #caption2, #caption3 {
+  .modal-content, #caption1, #caption2, #caption3, #caption4, #caption5, #caption6, #caption7, #caption8, #caption9, #caption10, #caption11, #caption12, #caption13, #caption14 {
     animation-name: zoom;
     animation-duration: 0.6s;
   }
@@ -56,7 +58,7 @@
   }
   
   /* The Close Button */
-  .close1, .close2, .close3 {
+  .close1, .close2, .close3, .close4, .close5, .close6, .close7, .close8, .close9, .close10, .close11, .close12, .close13, .close14 {
     position: absolute;
     top: 15px;
     right: 35px;
@@ -66,8 +68,8 @@
     transition: 0.3s;
   }
   
-  .close1:hover, .close2:hover, .close3:hover,
-  .close1:focus, .close2:focus, .close3:focus {
+  .close1:hover, .close2:hover, .close3:hover, .close4:hover, .close5:hover, .close6:hover, .close7:hover, .close8:hover, .close9:hover, .close10:hover, .close11:hover, .close12:hover, .close13:hover, .close14:hover,
+  .close1:focus, .close2:focus, .close3:focus, .close4:focus, .close5:focus, .close6:focus, .close7:focus, .close8:focus, .close9:focus, .close10:focus, .close11:focus, .close12:focus, .close13:focus, .close14:focus {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
