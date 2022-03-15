@@ -17,6 +17,22 @@ function initMapMarker() {
     setMarkerAll();
     setMarkerIci();
 }
+
+function initMapTrajetCW() {
+    const directionsRenderer = new google.maps.DirectionsRenderer();
+    const directionsService = new google.maps.DirectionsService();
+        map = new google.maps.Map(document.getElementById("map"), {
+        center: { lat: 48.88438603055488, lng: 2.2378334065649295 },
+        zoom: 15,
+        mapId: '20ffa254f66d015d'
+    });
+    
+    directionsRenderer.setMap(map);
+    calculateAndDisplayRoute(directionsService, directionsRenderer);
+    document.getElementById("mode").addEventListener("change", () => {
+      calculateAndDisplayRoute(directionsService, directionsRenderer);
+    });
+}
 //#endregion
 
 
@@ -55,8 +71,9 @@ function setMarkerCoiffeur() {
 
     const infowindow = new google.maps.InfoWindow({
         content: '<h2>Coiffure Wallace</h2>'
-            + '<a href="Coiffure_Wallace.html">Site du coiffeur</a>'
+            + '<a href="Boutiques\\Coiffure_Wallace.html">Site du coiffeur</a>'
             + '<br/><img src="imagesBoutiques\\CWallace.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajetCW();">'
     });
 
     marker.addListener("click", () => {
@@ -82,6 +99,7 @@ function setMarkerCoiffeur() {
         content: '<h2>Franck Provost</h2>'
             + '<a href="">Site du coiffeur</a>'
             + '<br/><img src="imagesBoutiques\\CFP.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker2.addListener("click", () => {
@@ -109,6 +127,7 @@ function setMarkerImprimerie() {
         content: '<h2>Duplinat</h2>'
             + '<a href="duplinat.html">Site de l\'imprimerie</a>'
             + '<br/><img src="imagesBoutiques\\IDuplinat.png" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker3.addListener("click", () => {
@@ -134,6 +153,7 @@ function setMarkerRestaurant() {
         content: '<h2>Huguito</h2>'
             + '<a href="Huguito.html">Site du restaurant</a>'
             + '<br/><img src="imagesBoutiques\\RHuguito.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker5.addListener("click", () => {
@@ -156,6 +176,7 @@ function setMarkerRestaurant() {
         content: '<h2>Roasty</h2>'
             + '<a href="roasty.html">Site du restaurant</a>'
             + '<br/><img src="imagesBoutiques\\RRoasty.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker6.addListener("click", () => {
@@ -179,6 +200,7 @@ function setMarkerRestaurant() {
         content: '<h2>Resunga</h2>'
             + '<a href="resunga.html">Site du restaurant</a>'
             + '<br/><img src="imagesBoutiques\\RResunga.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker7.addListener("click", () => {
@@ -204,6 +226,7 @@ function setMarkerFleuriste() {
         content: '<h2>The Florist</h2>'
             + '<a href="the_florist.html">Site du fleuriste</a>'
             + '<br/><img src="imagesBoutiques\\FTF.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker8.addListener("click", () => {
@@ -226,6 +249,7 @@ function setMarkerFleuriste() {
         content: '<h2>Fleuriste-lysianthus-Puteaux</h2>'
             + '<a href="fleuriste_lysanthus.html">Site du fleuriste</a>'
             + '<br/><img src="imagesBoutiques\\FFLP.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker9.addListener("click", () => {
@@ -251,6 +275,7 @@ function setMarkerBarberShop() {
         content: '<h2>Au coin des barbus</h2>'
             + '<a href="au_coin_des_barbus.html">Site du barbershop</a>'
             + '<br/><img src="imagesBoutiques\\BACDB.png" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker4.addListener("click", () => {
@@ -275,6 +300,7 @@ function setMarkerPharmacie() {
         content: '<h2>Pharmacie Boieldieu</h2>'
             + '<a href="pharmacie_boieldieu.html">Site de la pharmacie</a>'
             + '<br/><img src="imagesBoutiques\\PPB.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker10.addListener("click", () => {
@@ -297,8 +323,9 @@ function setMarkerMode() {
 
     const infowindow11 = new google.maps.InfoWindow({
         content: '<h2>Elysa</h2>'
-            + '<a href="elysa.html">Site du magasin de vêtements pour femme</a>'
+            + '<a href="elysa.html">Site du magasin de vï¿½tements pour femme</a>'
             + '<br/><img src="imagesBoutiques\\VFE.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker11.addListener("click", () => {
@@ -310,7 +337,7 @@ function setMarkerDecoration() {
     const marker12 = new google.maps.Marker({
         position: { lat: 48.880055146415486, lng: 2.236793122871394 },
         map,
-        title: "Indémodable & Brocanteo",
+        title: "Indï¿½modable & Brocanteo",
         animation: google.maps.Animation.DROP,
         icon: {
             url: "imagesMarker\\decoration.png",
@@ -320,9 +347,10 @@ function setMarkerDecoration() {
     });
 
     const infowindow12 = new google.maps.InfoWindow({
-        content: '<h2>Indémodable & Brocanteo</h2>'
-            + '<a href="indemodable.html">Site de la boutique de décoration</a>'
+        content: '<h2>Indï¿½modable & Brocanteo</h2>'
+            + '<a href="indemodable.html">Site de la boutique de dï¿½coration</a>'
             + '<br/><img src="imagesBoutiques\\DIB.jpg" width="200px" />'
+            +'<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
     marker12.addListener("click", () => {
@@ -388,3 +416,28 @@ function ClickReinitialiser() {
     setMarkerAll();
 };
 //#endregion
+
+
+function ClickTrajetCW(){
+    initMapTrajetCW();
+    setMarkerIci();
+    setMarkerCoiffeur();
+    
+};
+
+
+function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+    const selectedMode = document.getElementById("mode").value;
+  
+    directionsService
+      .route({
+        origin: { lat: 48.88438603055488, lng: 2.2378334065649295 },
+        destination: { lat: 48.8800542741571, lng: 2.239071648589728 },
+        travelMode: google.maps.TravelMode[selectedMode],
+      })
+      .then((response) => {
+        directionsRenderer.setDirections(response);
+      })
+      .catch((e) => window.alert("Directions request failed due to " + status));
+  }
+  
