@@ -126,7 +126,7 @@ body {
     position: relative;
     top: 0px;
     left: 0px;
-    background: url("images\\crypto.png");
+    background: url("../images/crypto.png");
     background-size: 100% 100%;
 }
 
