@@ -126,7 +126,7 @@ function setMarkerImprimerie() {
     const infowindow3 = new google.maps.InfoWindow({
         content: '<h2>Duplinat</h2>'
             + '<a href="../Boutiques/duplinat.html">Site de l\'imprimerie</a>'
-            + '<br/><img src="../images/IDuplinat.png" width="200px" />'
+            + '<br/><img src="../images/IDuplinat.jpg" width="200px" />'
             + '<br/><input type="button" id="btnClick10" value="Afficher le trajet" style="height:50px; width:200px" onclick="ClickTrajet();">'
     });
 
